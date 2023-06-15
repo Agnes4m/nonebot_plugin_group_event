@@ -9,7 +9,7 @@
 
 # nonebot_plugin_group_event
 
-        _✨Nonebot & 群聊活跃助手✨_
+## _✨Nonebot & 群聊活跃助手✨_
 
 <a href="https://github.com/Agnes4m/nonebot_plugin_group_event/stargazers">
 <img alt="GitHub stars" src="https://img.shields.io/github/stars/Agnes4m/nonebot_plugin_group_event" alt="stars">
@@ -33,16 +33,24 @@
 
 </div>
 
+## 介绍
+
+使用gocq的ob11的群事件信息，从而达到群事件处理的效果
+
 ## 功能
 
-1、戳一戳
+- [x] 戳一戳
+- [ ] 红包运气王
+- [ ] 群头衔变动
+- [ ] 群管理变动
+- [ ] 群成员增加
+- [ ] 群成员减少
 
 ## 配置
 
 配置文件位置：bot所在文件夹
 
         data/group_event/config.yml
-
 
 ## 安装
 
@@ -61,3 +69,7 @@ git clone https://github.com/Agnes4m/nonebot_plugin_group_event.git
 ## 指令
 
 - 暂无
+
+## 感谢
+
+- [简易群管](https://github.com/yzyyz1387/nonebot_plugin_admin) - 部分写法参考这个~~不~~简易群管

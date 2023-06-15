@@ -8,21 +8,25 @@ from ruamel import yaml
 CONFIG_PATH = Path() / 'data' / 'group_event' / 'config.yml'
 CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-class Poke_mode(BaseModel):
-    img :bool = Field(False, alias='图片')
-    text :bool = Field(False, alias='文字')
-    poke :bool = Field(True, alias='反击戳戳')
-
-class GROUP_ADMIN(BaseModel):
+class COMMON_EVENT(BaseModel):
     able :bool = Field(True, alias='是否启用此功能')
     w_or_b :bool = Field(False, alias='是否启用白名单')
     b_group_id :List[int] = Field([114514], alias='黑名单组')
     w_group_id :List[int] = Field([9191810], alias='白名单组')
+    img :bool = Field(False, alias='回复图片')
+    text :bool = Field(False, alias='回复文字')
+    poke :bool = Field(False, alias='回复戳戳')
+
+
 
 class GROUP_EVENT(BaseModel):
     total_enable: bool = Field(True, alias='是否全局启用功能')
-    poke_envet: Poke_mode = Field(Poke_mode(),alias='戳一戳事件')
-    poke_admin: GROUP_ADMIN = Field(GROUP_ADMIN(),alias='戳一戳管理')
+    poke_admin: COMMON_EVENT = Field(COMMON_EVENT(回复戳戳=True),alias='戳一戳')
+    honor_admin: COMMON_EVENT = Field(COMMON_EVENT(),alias='群荣誉变更')
+    luckyk_admin: COMMON_EVENT = Field(COMMON_EVENT(),alias='群红包运气王')
+    group_add: COMMON_EVENT = Field(COMMON_EVENT(),alias='群成员增加')
+    group_del: COMMON_EVENT = Field(COMMON_EVENT(),alias='群成员退出')
+    
     
     def update(self, **kwargs):
         for key, value in kwargs.items():
